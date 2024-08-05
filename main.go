@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/alexfalkowski/go-client-template/cmd"
 	sc "github.com/alexfalkowski/go-service/cmd"
+	"github.com/alexfalkowski/konfigctl/cmd"
 )
 
 func main() {
