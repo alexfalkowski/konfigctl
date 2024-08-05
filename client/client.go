@@ -5,8 +5,8 @@ import (
 
 	"github.com/alexfalkowski/go-service/env"
 	"github.com/alexfalkowski/go-service/security/token"
+	"github.com/alexfalkowski/go-service/transport/grpc"
 	v1 "github.com/alexfalkowski/konfigctl/client/konfig/v1"
-	"github.com/alexfalkowski/konfigctl/transport/grpc"
 	"go.opentelemetry.io/otel/metric"
 	"go.opentelemetry.io/otel/trace"
 	"go.uber.org/fx"
@@ -33,12 +33,24 @@ type ServiceClientParams struct {
 
 // NewServiceClient for gRPC.
 func NewServiceClient(params ServiceClientParams) (v1.ServiceClient, error) {
-	opts := grpc.ClientOpts{
-		Lifecycle: params.Lifecycle, Client: params.Client.Config,
-		Logger: params.Logger, Tracer: params.Tracer, Meter: params.Meter,
-		Generator: params.Generator, UserAgent: params.UserAgent,
+	sec, err := grpc.WithClientTLS(params.Client.TLS)
+	if err != nil {
+		return nil, err
 	}
-	conn, err := grpc.NewClient(opts)
+
+	opts := []grpc.ClientOption{
+		grpc.WithClientLogger(params.Logger), grpc.WithClientTracer(params.Tracer),
+		grpc.WithClientMetrics(params.Meter), grpc.WithClientRetry(params.Client.Retry),
+		grpc.WithClientUserAgent(params.UserAgent), grpc.WithClientTimeout(params.Client.Timeout),
+		grpc.WithClientTokenGenerator(params.Generator), sec,
+	}
+	conn, err := grpc.NewClient(params.Client.Address, opts...)
+
+	params.Lifecycle.Append(fx.Hook{
+		OnStop: func(_ context.Context) error {
+			return conn.Close()
+		},
+	})
 
 	return v1.NewServiceClient(conn), err
 }
