@@ -18,9 +18,7 @@ We want to separate the daemon from the control. This is a similar design to oth
 
 ## Client
 
-The client contains multiple commands. They all share the way we connect to the services, this is configured as:
-
-This can be configured as following:
+The client contains multiple commands. They all share the way we connect to the service, this is configured as:
 
 ```yaml
 client:
@@ -34,6 +32,23 @@ client:
 ```
 
 ### Config
+
+The client can download a configuration.
+
+```bash
+❯ ./konfigctl config --help
+Get Config.
+
+Usage:
+  konfigctl config [flags]
+
+Flags:
+  -h, --help            help for config
+  -o, --output string   output config location (format kind:location) (default "env:KONFIG_APP_CONFIG_FILE")
+
+Global Flags:
+  -i, --input string   input config location (format kind:location) (default "env:KONFIG_CONFIG_FILE")
+```
 
 This can be configured as following:
 
@@ -52,6 +67,23 @@ client:
 
 ### Secrets
 
+The client can write secrets to a specified path.
+
+```bash
+❯ ./konfigctl config --help
+Get Config.
+
+Usage:
+  konfigctl config [flags]
+
+Flags:
+  -h, --help            help for config
+  -o, --output string   output config location (format kind:location) (default "env:KONFIG_APP_CONFIG_FILE")
+
+Global Flags:
+  -i, --input string   input config location (format kind:location) (default "env:KONFIG_CONFIG_FILE")
+```
+
 This can be configured as following:
 
 ```yaml
@@ -63,6 +95,10 @@ client:
     path: reports
     mode: 0o600
 ```
+
+### Dependencies
+
+![Dependencies](./assets/client.png)
 
 ## Design
 
