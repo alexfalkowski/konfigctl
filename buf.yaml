@@ -1,0 +1,8 @@
+version: v2
+name: buf.build/afalkowski/konfigctl
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT

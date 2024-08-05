@@ -4,30 +4,69 @@
 [![Go Reference](https://pkg.go.dev/badge/github.com/alexfalkowski/konfigctl.svg)](https://pkg.go.dev/github.com/alexfalkowski/konfigctl)
 [![Stability: Active](https://masterminds.github.io/stability/active.svg)](https://masterminds.github.io/stability/active.html)
 
+# Konfig Control
 
-# Client
-
-Make sure you add the name of the client what what it is.
+A tool to control the [konfig](https://github.com/alexfalkowski/konfig) daemon.
 
 ## Background
 
-Add a background.
+Have a look at the konfig [background](https://github.com/alexfalkowski/konfig?tab=readme-ov-file#background).
 
 ### Why a client?
 
-Why is it important to have this client.
+We want to separate the daemon from the control. This is a similar design to other systems, such as [kubernetes](https://kubernetes.io/).
 
 ## Client
 
-Explain the client side of things.
+The client contains multiple commands. They all share the way we connect to the services, this is configured as:
+
+This can be configured as following:
+
+```yaml
+client:
+  address: localhost:12000
+  user_agent: "Konfig-client/1.0 gRPC/1.0"
+  retry:
+    attempts: 3
+    backoff: 100ms
+    timeout: 10s
+  timeout: 5s
+```
+
+### Config
+
+This can be configured as following:
+
+```yaml
+client:
+  config:
+    application: test
+    version: v1.11.0
+    environment: staging
+    continent: '*'
+    country: '*'
+    command: server
+    kind: yaml
+    mode: 0o600
+```
+
+### Secrets
+
+This can be configured as following:
+
+```yaml
+client:
+  secrets:
+    files:
+      vault.secret: vault:/secret/data/transport/http/user_agent
+      ssm.secret: ssm:/secret/data/transport/http/user_agent
+    path: reports
+    mode: 0o600
+```
 
 ## Design
 
-Add anything interesting about the design.
-
-## Other Systems
-
-Describe any other similar systems you took inspiration from.
+Please take a look at the [template](https://github.com/alexfalkowski/go-client-template) this is derived from.
 
 ## Development
 

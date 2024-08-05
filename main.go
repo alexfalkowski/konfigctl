@@ -15,9 +15,13 @@ func main() {
 
 func command() *sc.Command {
 	c := sc.New(cmd.Version)
-	cl := c.AddClient(cmd.ClientOptions...)
-	c.RegisterInput(cl, "")
-	c.RegisterOutput(cl, "")
+	c.RegisterInput(c.Root(), "env:KONFIG_CONFIG_FILE")
+
+	co := c.AddClientCommand("config", "Get Config.", cmd.ConfigOptions...)
+	c.RegisterOutput(co, "env:KONFIG_APP_CONFIG_FILE")
+
+	se := c.AddClientCommand("secrets", "Write secrets.", cmd.SecretsOptions...)
+	c.RegisterOutput(se, "env:KONFIG_APP_CONFIG_FILE")
 
 	return c
 }
