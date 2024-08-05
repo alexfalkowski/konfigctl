@@ -6,5 +6,8 @@ import (
 
 // Module for fx.
 var Module = fx.Options(
+	fx.Provide(NewGenerator),
+	fx.Provide(NewServiceClient),
+	fx.Provide(NewClient),
 	fx.Invoke(RunCommand),
 )
