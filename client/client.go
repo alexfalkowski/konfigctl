@@ -13,12 +13,12 @@ import (
 	"go.uber.org/zap"
 )
 
-// NewGenerator for token.
+// NewGenerator for konfig.
 func NewGenerator(tkn token.Tokenizer) token.Generator {
 	return tkn
 }
 
-// ServiceClientParams for gRPC.
+// ServiceClientParams for konfig.
 type ServiceClientParams struct {
 	fx.In
 
@@ -31,7 +31,7 @@ type ServiceClientParams struct {
 	UserAgent env.UserAgent
 }
 
-// NewServiceClient for gRPC.
+// NewServiceClient for konfig.
 func NewServiceClient(params ServiceClientParams) (v1.ServiceClient, error) {
 	sec, err := grpc.WithClientTLS(params.Client.TLS)
 	if err != nil {
@@ -66,7 +66,7 @@ func NewClient(client v1.ServiceClient, config *Config) *Client {
 	return &Client{client: client, config: config}
 }
 
-// Config from client.
+// Config from konfig.
 func (c *Client) Config(ctx context.Context) ([]byte, error) {
 	cfg := c.config.Configuration
 	req := &v1.GetConfigRequest{
@@ -87,7 +87,7 @@ func (c *Client) Config(ctx context.Context) ([]byte, error) {
 	return resp.GetConfig().GetData(), nil
 }
 
-// Secrets from client.
+// Secrets from konfig.
 func (c *Client) Secrets(ctx context.Context) (map[string][]byte, error) {
 	req := &v1.GetSecretsRequest{Secrets: c.config.Secrets.Files}
 

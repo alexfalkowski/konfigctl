@@ -5,7 +5,7 @@ import (
 )
 
 type (
-	// Configuration for client.
+	// Configuration for konfig.
 	Configuration struct {
 		Application string `yaml:"application,omitempty" json:"application,omitempty" toml:"application,omitempty"`
 		Version     string `yaml:"version,omitempty" json:"version,omitempty" toml:"version,omitempty"`
@@ -17,14 +17,14 @@ type (
 		Mode        uint32 `yaml:"mode,omitempty" json:"mode,omitempty" toml:"mode,omitempty"`
 	}
 
-	// Secrets for client.
+	// Secrets for konfig.
 	Secrets struct {
 		Files map[string]string `yaml:"files,omitempty" json:"files,omitempty" toml:"files,omitempty"`
 		Path  string            `yaml:"path,omitempty" json:"path,omitempty" toml:"path,omitempty"`
 		Mode  uint32            `yaml:"mode,omitempty" json:"mode,omitempty" toml:"mode,omitempty"`
 	}
 
-	// Config for client.
+	// Config for konfig.
 	Config struct {
 		*client.Config `yaml:",inline" json:",inline" toml:",inline"`
 		Configuration  *Configuration `yaml:"config,omitempty" json:"config,omitempty" toml:"config,omitempty"`
@@ -32,7 +32,7 @@ type (
 	}
 )
 
-// IsEnabled for config.
+// IsEnabled the config.
 func IsEnabled(cfg *Config) bool {
 	return cfg != nil
 }
