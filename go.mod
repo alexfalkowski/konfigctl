@@ -3,7 +3,7 @@ module github.com/alexfalkowski/konfigctl
 go 1.22.6
 
 require (
-	github.com/alexfalkowski/go-service v1.270.6
+	github.com/alexfalkowski/go-service v1.271.0
 	go.opentelemetry.io/otel/metric v1.28.0
 	go.opentelemetry.io/otel/trace v1.28.0
 	go.uber.org/fx v1.22.1
