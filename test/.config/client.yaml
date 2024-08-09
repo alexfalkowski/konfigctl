@@ -32,5 +32,4 @@ telemetry:
     kind: otlp
     url: http://localhost:4318/v1/traces
 token:
-  argon2:
-    key: secrets/token
+  key: secrets/token
