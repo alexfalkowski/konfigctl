@@ -1,4 +1,4 @@
-package client
+package token
 
 import (
 	"go.uber.org/fx"
@@ -6,6 +6,5 @@ import (
 
 // Module for fx.
 var Module = fx.Options(
-	fx.Provide(NewServiceClient),
-	fx.Provide(NewClient),
+	fx.Provide(NewGenerator),
 )

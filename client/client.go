@@ -13,11 +13,6 @@ import (
 	"go.uber.org/zap"
 )
 
-// NewGenerator for konfig.
-func NewGenerator(tkn token.Tokenizer) token.Generator {
-	return tkn
-}
-
 // ServiceClientParams for konfig.
 type ServiceClientParams struct {
 	fx.In
