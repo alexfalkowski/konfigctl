@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/alexfalkowski/go-service/os"
-	"github.com/alexfalkowski/go-service/security/token"
+	"github.com/alexfalkowski/go-service/token"
 )
 
 // NewGenerator for konfig.
