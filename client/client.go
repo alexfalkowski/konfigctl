@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/alexfalkowski/go-service/env"
-	"github.com/alexfalkowski/go-service/security/token"
+	"github.com/alexfalkowski/go-service/token"
 	"github.com/alexfalkowski/go-service/transport/grpc"
 	v1 "github.com/alexfalkowski/konfigctl/client/konfig/v1"
 	"go.opentelemetry.io/otel/metric"
