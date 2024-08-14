@@ -1,9 +1,11 @@
 module github.com/alexfalkowski/konfigctl
 
-go 1.22.6
+go 1.23
+
+toolchain go1.23.0
 
 require (
-	github.com/alexfalkowski/go-service v1.275.0
+	github.com/alexfalkowski/go-service v1.276.0
 	go.opentelemetry.io/otel/metric v1.28.0
 	go.opentelemetry.io/otel/trace v1.28.0
 	go.uber.org/fx v1.22.2
