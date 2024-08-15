@@ -5,7 +5,7 @@ go 1.23
 toolchain go1.23.0
 
 require (
-	github.com/alexfalkowski/go-service v1.276.0
+	github.com/alexfalkowski/go-service v1.276.1
 	go.opentelemetry.io/otel/metric v1.28.0
 	go.opentelemetry.io/otel/trace v1.28.0
 	go.uber.org/fx v1.22.2
@@ -77,7 +77,7 @@ require (
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/ngrok/sqlmw v0.0.0-20220520173518-97c9c04efc79 // indirect
 	github.com/open-feature/go-sdk v1.12.0 // indirect
-	github.com/open-feature/go-sdk-contrib/hooks/open-telemetry v0.3.3 // indirect
+	github.com/open-feature/go-sdk-contrib/hooks/open-telemetry v0.3.4 // indirect
 	github.com/opencontainers/runtime-spec v1.0.2 // indirect
 	github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
