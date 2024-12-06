@@ -22,7 +22,7 @@ type ServiceClientParams struct {
 	Logger    *zap.Logger
 	Tracer    trace.Tracer
 	Meter     metric.Meter
-	Generator token.Generator
+	Generator *token.Token
 	UserAgent env.UserAgent
 }
 
