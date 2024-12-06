@@ -4,7 +4,7 @@ import (
 	"github.com/alexfalkowski/go-service/cmd"
 	"github.com/alexfalkowski/go-service/crypto"
 	"github.com/alexfalkowski/go-service/env"
-	"github.com/alexfalkowski/go-service/token"
+	"github.com/alexfalkowski/konfigctl/token"
 	"go.uber.org/fx"
 )
 
