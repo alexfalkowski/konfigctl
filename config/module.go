@@ -11,5 +11,4 @@ var Module = fx.Options(
 	config.Module,
 	fx.Decorate(decorateConfig),
 	fx.Provide(clientConfig),
-	fx.Provide(tokenConfig),
 )

@@ -4,7 +4,6 @@ import (
 	"github.com/alexfalkowski/go-service/cmd"
 	"github.com/alexfalkowski/go-service/config"
 	"github.com/alexfalkowski/konfigctl/client"
-	"github.com/alexfalkowski/konfigctl/token"
 )
 
 // NewConfig for config.
@@ -22,7 +21,6 @@ func IsEnabled(cfg *Config) bool {
 // Config for the client.
 type Config struct {
 	Client         *client.Config `yaml:"client,omitempty" json:"client,omitempty" toml:"client,omitempty"`
-	Token          *token.Config  `yaml:"token,omitempty" json:"token,omitempty" toml:"token,omitempty"`
 	*config.Config `yaml:",inline" json:",inline" toml:",inline"`
 }
 
@@ -40,12 +38,4 @@ func clientConfig(cfg *Config) *client.Config {
 	}
 
 	return cfg.Client
-}
-
-func tokenConfig(cfg *Config) *token.Config {
-	if !IsEnabled(cfg) || !token.IsEnabled(cfg.Token) {
-		return nil
-	}
-
-	return cfg.Token
 }
