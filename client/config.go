@@ -31,8 +31,3 @@ type (
 		Secrets        *Secrets       `yaml:"secrets,omitempty" json:"secrets,omitempty" toml:"secrets,omitempty"`
 	}
 )
-
-// IsEnabled the config.
-func IsEnabled(cfg *Config) bool {
-	return cfg != nil
-}
