@@ -28,16 +28,11 @@ type ServiceClientParams struct {
 
 // NewServiceClient for konfig.
 func NewServiceClient(params ServiceClientParams) (v1.ServiceClient, error) {
-	sec, err := grpc.WithClientTLS(params.Client.TLS)
-	if err != nil {
-		return nil, err
-	}
-
 	opts := []grpc.ClientOption{
 		grpc.WithClientLogger(params.Logger), grpc.WithClientTracer(params.Tracer),
 		grpc.WithClientMetrics(params.Meter), grpc.WithClientRetry(params.Client.Retry),
 		grpc.WithClientUserAgent(params.UserAgent), grpc.WithClientTimeout(params.Client.Timeout),
-		grpc.WithClientTokenGenerator(params.Generator), sec,
+		grpc.WithClientTokenGenerator(params.Generator), grpc.WithClientTLS(params.Client.TLS),
 	}
 	conn, err := grpc.NewClient(params.Client.Address, opts...)
 
