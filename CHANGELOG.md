@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v0.105.1](https://github.com/alexfalkowski/konfigctl/releases/tag/v0.105.1) - 2025-01-18
+
+- [`36abeee`](https://github.com/alexfalkowski/konfigctl/commit/36abeeed329764533d64f7fc5c4af19298ce2450) fix(docker): add space (#204)
+
 ## [v0.105.0](https://github.com/alexfalkowski/konfigctl/releases/tag/v0.105.0) - 2025-01-18
 
 - [`9c34e13`](https://github.com/alexfalkowski/konfigctl/commit/9c34e13e3f982c1f18bf18647b6e7c5a85bd84fd) feat(docker): create a statically linked binary (#203)
