@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/alexfalkowski/go-service/env"
+	"github.com/alexfalkowski/go-service/id"
 	"github.com/alexfalkowski/go-service/token"
 	"github.com/alexfalkowski/go-service/transport/grpc"
 	v1 "github.com/alexfalkowski/konfigctl/client/konfig/v1"
@@ -16,12 +17,12 @@ import (
 // ServiceClientParams for konfig.
 type ServiceClientParams struct {
 	fx.In
-
 	Lifecycle fx.Lifecycle
-	Client    *Config
-	Logger    *zap.Logger
 	Tracer    trace.Tracer
 	Meter     metric.Meter
+	ID        id.Generator
+	Client    *Config
+	Logger    *zap.Logger
 	Generator *token.Token
 	UserAgent env.UserAgent
 }
@@ -33,6 +34,7 @@ func NewServiceClient(params ServiceClientParams) (v1.ServiceClient, error) {
 		grpc.WithClientMetrics(params.Meter), grpc.WithClientRetry(params.Client.Retry),
 		grpc.WithClientUserAgent(params.UserAgent), grpc.WithClientTimeout(params.Client.Timeout),
 		grpc.WithClientTokenGenerator(params.Generator), grpc.WithClientTLS(params.Client.TLS),
+		grpc.WithClientID(params.ID),
 	}
 	conn, err := grpc.NewClient(params.Client.Address, opts...)
 
