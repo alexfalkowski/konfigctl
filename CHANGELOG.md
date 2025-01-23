@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v0.111.0](https://github.com/alexfalkowski/konfigctl/releases/tag/v0.111.0) - 2025-01-23
+
+- [`55b4d43`](https://github.com/alexfalkowski/konfigctl/commit/55b4d43fd1d018c302c6724089c03cd4818059d8) feat(token): use generator rather than token (#216)
+- [`ea1f525`](https://github.com/alexfalkowski/konfigctl/commit/ea1f525af1b96ddb46a1d7465574ed69bba1f3bf) test(token): verify authorization is sent (#214)
+- [`93ffc41`](https://github.com/alexfalkowski/konfigctl/commit/93ffc41f70b0ac038cc394035797e6ad9f5739d4) test(all): handle errors from server (#213)
+- [`61e8e82`](https://github.com/alexfalkowski/konfigctl/commit/61e8e82f8df96e2c2d7e5d49efa03042e775e06a) test(deps): bump rubocop from 1.70.0 to 1.71.0 in /test (#212)
+
 ## [v0.110.2](https://github.com/alexfalkowski/konfigctl/releases/tag/v0.110.2) - 2025-01-22
 
 - [`33095b9`](https://github.com/alexfalkowski/konfigctl/commit/33095b9f70690fb6b53bb4aac3cfcca40fd08c90) fix(id): make sure we pass the generator (#211)
