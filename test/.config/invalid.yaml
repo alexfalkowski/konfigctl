@@ -8,7 +8,7 @@ client:
   timeout: 5s
   config:
     application: test
-    version: v1.11.0
+    version: none
     environment: staging
     continent: "*"
     country: "*"
@@ -16,9 +16,6 @@ client:
     kind: yaml
     mode: 0o600
   secrets:
-    files:
-      vault.secret: vault:/secret/data/transport/http/user_agent
-      ssm.secret: ssm:/secret/data/transport/http/user_agent
     path: reports
     mode: 0o600
 environment: development
