@@ -23,7 +23,7 @@ type ServiceClientParams struct {
 	ID        id.Generator
 	Client    *Config
 	Logger    *zap.Logger
-	Generator *token.Token
+	Generator token.Generator
 	UserAgent env.UserAgent
 }
 
