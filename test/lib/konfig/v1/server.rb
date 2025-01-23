@@ -3,7 +3,8 @@
 module Konfig
   module V1
     class Server < Service::Service
-      def get_config(request, _call)
+      def get_config(request, call)
+        raise GRPC::Unauthenticated, 'missing auth' if call.metadata['authorization'].empty?
         raise GRPC::NotFound, 'version not found' if request.version == 'none'
 
         c = Config.new(application: request.application, version: request.version, environment: request.environment, continent: request.continent,
@@ -11,7 +12,9 @@ module Konfig
         GetConfigResponse.new(config: c)
       end
 
-      def get_secrets(request, _call)
+      def get_secrets(request, call)
+        raise GRPC::Unauthenticated, 'missing auth' if call.metadata['authorization'].empty?
+
         secrets = request.secrets.to_h
         raise GRPC::NotFound, 'secrets not found' if secrets.empty?
 
