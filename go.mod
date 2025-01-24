@@ -5,13 +5,13 @@ go 1.23.3
 toolchain go1.23.5
 
 require (
-	github.com/alexfalkowski/go-service v1.385.0
+	github.com/alexfalkowski/go-service v1.385.1
 	go.opentelemetry.io/otel/metric v1.34.0
 	go.opentelemetry.io/otel/trace v1.34.0
 	go.uber.org/fx v1.23.0
 	go.uber.org/zap v1.27.0
 	google.golang.org/grpc v1.70.0
-	google.golang.org/protobuf v1.36.3
+	google.golang.org/protobuf v1.36.4
 )
 
 require (
