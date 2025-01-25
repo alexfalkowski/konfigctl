@@ -1,7 +1,7 @@
-version: 1.0
+version: "1.0"
+wait: 1
 servers:
-  -
-    name: konfig
+  - name: konfig
     class: Konfig::V1::GRPCServer
     timeout: 1
     port: 12000
