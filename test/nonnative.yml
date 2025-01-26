@@ -1,5 +1,4 @@
 version: "1.0"
-wait: 1
 servers:
   - name: konfig
     class: Konfig::V1::GRPCServer
