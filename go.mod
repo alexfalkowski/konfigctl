@@ -5,7 +5,7 @@ go 1.23.3
 toolchain go1.23.5
 
 require (
-	github.com/alexfalkowski/go-service v1.389.0
+	github.com/alexfalkowski/go-service v1.390.0
 	go.opentelemetry.io/otel/metric v1.34.0
 	go.opentelemetry.io/otel/trace v1.34.0
 	go.uber.org/fx v1.23.0
