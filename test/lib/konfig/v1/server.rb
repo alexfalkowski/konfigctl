@@ -23,8 +23,10 @@ module Konfig
     end
 
     class GRPCServer < Nonnative::GRPCServer
-      def svc
-        Server.new
+      def initialize(service)
+        svc = Server.new
+
+        super(svc, service)
       end
     end
   end
