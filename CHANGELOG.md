@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v0.120.0](https://github.com/alexfalkowski/konfigctl/releases/tag/v0.120.0) - 2025-01-29
+
+- [`2881a25`](https://github.com/alexfalkowski/konfigctl/commit/2881a25e393a535338a014142c97919227e1c67f) feat(deps): upgraded github.com/alexfalkowski/go-service to v1.393.0 (#236)
+- [`c68f028`](https://github.com/alexfalkowski/konfigctl/commit/c68f0285626372d6102a81e15496f21b2a1178eb) build(deps): bump bin from `cb313fe` to `5b56b0c` (#235)
+- [`3715e82`](https://github.com/alexfalkowski/konfigctl/commit/3715e82cb02e606330a2b0f2f96c4bc88f79dfed) test(deps): bump nonnative from 1.90.1 to 1.92.0 in /test (#233)
+- [`1273d23`](https://github.com/alexfalkowski/konfigctl/commit/1273d2390d0165debad28e7498fe6e5f6391d989) test(deps): bump ruby-lsp from 0.23.6 to 0.23.7 in /test (#234)
+- [`5c79a4b`](https://github.com/alexfalkowski/konfigctl/commit/5c79a4b5b72781aeb2b1bfb75848c50d126db4b9) build(ci): update alexfalkowski/go:1.8 (#232)
+- [`283fbc5`](https://github.com/alexfalkowski/konfigctl/commit/283fbc5eaf85101165cd5d5161f810c245d3bb18) test(deps): update nonnative (1.90.1) (#231)
+
 ## [v0.119.0](https://github.com/alexfalkowski/konfigctl/releases/tag/v0.119.0) - 2025-01-28
 
 - [`1fc52d2`](https://github.com/alexfalkowski/konfigctl/commit/1fc52d2dfce58736bd4a97649e3a446bece5a66d) feat(deps): upgraded github.com/alexfalkowski/go-service to v1.391.0 (#229)
