@@ -17,6 +17,7 @@ import (
 // ServiceClientParams for konfig.
 type ServiceClientParams struct {
 	fx.In
+
 	Lifecycle fx.Lifecycle
 	Tracer    trace.Tracer
 	Meter     metric.Meter
@@ -58,8 +59,8 @@ func NewClient(client v1.ServiceClient, config *Config) *Client {
 	return &Client{client: client, config: config}
 }
 
-// Config from konfig.
-func (c *Client) Config(ctx context.Context) ([]byte, error) {
+// Config from request.
+func (c *Client) Config(ctx context.Context) (string, error) {
 	cfg := c.config.Configuration
 	req := &v1.GetConfigRequest{
 		Application: cfg.Application,
@@ -73,13 +74,15 @@ func (c *Client) Config(ctx context.Context) ([]byte, error) {
 
 	resp, err := c.client.GetConfig(ctx, req)
 	if err != nil {
-		return nil, err
+		return "", err
 	}
 
-	return resp.GetConfig().GetData(), nil
+	d := resp.GetConfig().GetData()
+
+	return string(d), nil
 }
 
-// Secrets from konfig.
+// Secrets from request.
 func (c *Client) Secrets(ctx context.Context) (map[string][]byte, error) {
 	req := &v1.GetSecretsRequest{Secrets: c.config.Secrets.Files}
 
