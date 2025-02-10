@@ -3,10 +3,10 @@ package secrets
 import (
 	"context"
 	"io/fs"
-	"os"
 	"path/filepath"
 
 	"github.com/alexfalkowski/go-service/cmd"
+	"github.com/alexfalkowski/go-service/os"
 	"github.com/alexfalkowski/go-service/runtime"
 	"github.com/alexfalkowski/konfigctl/client"
 	"go.uber.org/fx"
@@ -20,6 +20,7 @@ type Params struct {
 	Client       *client.Client
 	OutputConfig *cmd.OutputConfig
 	Config       *client.Config
+	FileSystem   os.FileSystem
 }
 
 // Start for secrets.
@@ -33,7 +34,7 @@ func Start(params Params) {
 		for n, v := range secrets {
 			p := filepath.Join(cfg.Path, n)
 
-			err := os.WriteFile(p, v, fs.FileMode(cfg.Mode))
+			err := params.FileSystem.WriteFile(p, string(v), fs.FileMode(cfg.Mode))
 			runtime.Must(err)
 		}
 	})
