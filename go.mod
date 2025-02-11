@@ -5,7 +5,7 @@ go 1.23.3
 toolchain go1.23.6
 
 require (
-	github.com/alexfalkowski/go-service v1.426.0
+	github.com/alexfalkowski/go-service v1.427.0
 	go.opentelemetry.io/otel/metric v1.34.0
 	go.opentelemetry.io/otel/trace v1.34.0
 	go.uber.org/fx v1.23.0
@@ -111,7 +111,7 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.33.0 // indirect
 	golang.org/x/exp v0.0.0-20240506185415-9bf2ced13842 // indirect
-	golang.org/x/net v0.34.0 // indirect
+	golang.org/x/net v0.35.0 // indirect
 	golang.org/x/sync v0.11.0 // indirect
 	golang.org/x/sys v0.30.0 // indirect
 	golang.org/x/text v0.22.0 // indirect
