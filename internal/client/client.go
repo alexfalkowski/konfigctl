@@ -7,7 +7,7 @@ import (
 	"github.com/alexfalkowski/go-service/id"
 	"github.com/alexfalkowski/go-service/token"
 	"github.com/alexfalkowski/go-service/transport/grpc"
-	v1 "github.com/alexfalkowski/konfigctl/client/konfig/v1"
+	v1 "github.com/alexfalkowski/konfigctl/internal/client/konfig/v1"
 	"go.opentelemetry.io/otel/metric"
 	"go.opentelemetry.io/otel/trace"
 	"go.uber.org/fx"
