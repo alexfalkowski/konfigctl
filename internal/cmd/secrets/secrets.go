@@ -8,7 +8,7 @@ import (
 	"github.com/alexfalkowski/go-service/cmd"
 	"github.com/alexfalkowski/go-service/os"
 	"github.com/alexfalkowski/go-service/runtime"
-	"github.com/alexfalkowski/konfigctl/client"
+	"github.com/alexfalkowski/konfigctl/internal/client"
 	"go.uber.org/fx"
 )
 
