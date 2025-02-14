@@ -15,7 +15,7 @@ func RegisterSecrets(command *cmd.Command) {
 	client := command.AddClient("secrets", "Write secrets.",
 		module.Module, token.Module,
 		telemetry.Module, client.Module,
-		secrets.Module, config.Module, cmd.Module,
+		secrets.Module, config.Module, Module,
 	)
 	command.RegisterOutput(client, "env:KONFIG_APP_CONFIG_FILE")
 }
