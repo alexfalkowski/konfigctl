@@ -15,7 +15,7 @@ func RegisterConfig(command *cmd.Command) {
 	client := command.AddClient("config", "Get Config.", module.Module, token.Module,
 		telemetry.Module, config.Module,
 		client.Module, kc.Module,
-		config.Module, cmd.Module,
+		config.Module, Module,
 	)
 	command.RegisterOutput(client, "env:KONFIG_APP_CONFIG_FILE")
 }
