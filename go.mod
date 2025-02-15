@@ -3,7 +3,7 @@ module github.com/alexfalkowski/konfigctl
 go 1.24.0
 
 require (
-	github.com/alexfalkowski/go-service v1.435.0
+	github.com/alexfalkowski/go-service v1.437.1
 	go.opentelemetry.io/otel/metric v1.34.0
 	go.opentelemetry.io/otel/trace v1.34.0
 	go.uber.org/fx v1.23.0
@@ -87,7 +87,7 @@ require (
 	github.com/sony/gobreaker v1.0.0 // indirect
 	github.com/spf13/cast v1.7.1 // indirect
 	github.com/spf13/cobra v1.8.1 // indirect
-	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/spf13/pflag v1.0.6 // indirect
 	github.com/standard-webhooks/standard-webhooks/libraries v0.0.0-20250130150621-c1b941e3a055 // indirect
 	github.com/tklauser/go-sysconf v0.3.14 // indirect
 	github.com/tklauser/numcpus v0.9.0 // indirect
