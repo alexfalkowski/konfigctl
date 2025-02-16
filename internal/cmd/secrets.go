@@ -14,9 +14,9 @@ import (
 // RegisterSecrets for cmd.
 func RegisterSecrets(command *cmd.Command) {
 	flags := flags.NewFlagSet("secrets")
+	flags.AddInput("env:KONFIG_CONFIG_FILE")
+	flags.AddOutput("env:KONFIG_APP_CONFIG_FILE")
 
-	command.RegisterInput(flags, "env:KONFIG_CONFIG_FILE")
-	command.RegisterOutput(flags, "env:KONFIG_APP_CONFIG_FILE")
 	command.AddClient("secrets", "Write secrets.", flags,
 		module.Module, token.Module,
 		telemetry.Module, client.Module,

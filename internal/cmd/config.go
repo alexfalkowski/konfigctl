@@ -14,9 +14,9 @@ import (
 // RegisterConfig for cmd.
 func RegisterConfig(command *cmd.Command) {
 	flags := flags.NewFlagSet("config")
+	flags.AddInput("env:KONFIG_CONFIG_FILE")
+	flags.AddOutput("env:KONFIG_APP_CONFIG_FILE")
 
-	command.RegisterInput(flags, "env:KONFIG_CONFIG_FILE")
-	command.RegisterOutput(flags, "env:KONFIG_APP_CONFIG_FILE")
 	command.AddClient("config", "Get Config.", flags,
 		module.Module, token.Module,
 		telemetry.Module, config.Module,
