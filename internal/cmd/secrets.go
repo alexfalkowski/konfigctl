@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"github.com/alexfalkowski/go-service/cmd"
-	"github.com/alexfalkowski/go-service/flags"
 	"github.com/alexfalkowski/go-service/module"
 	"github.com/alexfalkowski/go-service/telemetry"
 	"github.com/alexfalkowski/konfigctl/internal/client"
@@ -13,7 +12,7 @@ import (
 
 // RegisterSecrets for cmd.
 func RegisterSecrets(command *cmd.Command) {
-	flags := flags.NewFlagSet("secrets")
+	flags := cmd.NewFlagSet("secrets")
 	flags.AddInput("env:KONFIG_CONFIG_FILE")
 	flags.AddOutput("env:KONFIG_APP_CONFIG_FILE")
 
