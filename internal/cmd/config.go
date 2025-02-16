@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"github.com/alexfalkowski/go-service/cmd"
+	"github.com/alexfalkowski/go-service/flags"
 	"github.com/alexfalkowski/go-service/module"
 	"github.com/alexfalkowski/go-service/telemetry"
 	"github.com/alexfalkowski/konfigctl/internal/client"
@@ -12,10 +13,14 @@ import (
 
 // RegisterConfig for cmd.
 func RegisterConfig(command *cmd.Command) {
-	client := command.AddClient("config", "Get Config.", module.Module, token.Module,
+	flags := flags.NewFlagSet("config")
+
+	command.RegisterInput(flags, "env:KONFIG_CONFIG_FILE")
+	command.RegisterOutput(flags, "env:KONFIG_APP_CONFIG_FILE")
+	command.AddClient("config", "Get Config.", flags,
+		module.Module, token.Module,
 		telemetry.Module, config.Module,
 		client.Module, kc.Module,
 		config.Module, cmd.Module,
 	)
-	command.RegisterOutput(client, "env:KONFIG_APP_CONFIG_FILE")
 }
