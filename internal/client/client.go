@@ -6,11 +6,11 @@ import (
 	"github.com/alexfalkowski/go-service/env"
 	"github.com/alexfalkowski/go-service/id"
 	"github.com/alexfalkowski/go-service/telemetry/logger"
+	"github.com/alexfalkowski/go-service/telemetry/metrics"
+	"github.com/alexfalkowski/go-service/telemetry/tracer"
 	"github.com/alexfalkowski/go-service/token"
 	"github.com/alexfalkowski/go-service/transport/grpc"
 	v1 "github.com/alexfalkowski/konfigctl/internal/client/konfig/v1"
-	"go.opentelemetry.io/otel/metric"
-	"go.opentelemetry.io/otel/trace"
 	"go.uber.org/fx"
 )
 
@@ -19,8 +19,8 @@ type ServiceClientParams struct {
 	fx.In
 
 	Lifecycle fx.Lifecycle
-	Tracer    trace.Tracer
-	Meter     metric.Meter
+	Tracer    *tracer.Tracer
+	Meter     *metrics.Meter
 	ID        id.Generator
 	Client    *Config
 	Logger    *logger.Logger
