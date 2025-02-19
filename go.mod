@@ -3,7 +3,7 @@ module github.com/alexfalkowski/konfigctl
 go 1.24.0
 
 require (
-	github.com/alexfalkowski/go-service v1.452.0
+	github.com/alexfalkowski/go-service v1.455.0
 	go.opentelemetry.io/otel/metric v1.34.0
 	go.opentelemetry.io/otel/trace v1.34.0
 	go.uber.org/fx v1.23.0
@@ -13,8 +13,8 @@ require (
 )
 
 require (
-	aidanwoods.dev/go-paseto v1.5.3 // indirect
-	aidanwoods.dev/go-result v0.1.0 // indirect
+	aidanwoods.dev/go-paseto v1.5.4 // indirect
+	aidanwoods.dev/go-result v0.3.1 // indirect
 	dario.cat/mergo v1.0.1 // indirect
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/BurntSushi/toml v1.4.0 // indirect
