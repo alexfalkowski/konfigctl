@@ -24,6 +24,7 @@ client:
 environment: development
 telemetry:
   logger:
+    kind: stdout
     level: info
   metrics:
     kind: otlp
