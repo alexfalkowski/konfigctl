@@ -3,7 +3,7 @@ module github.com/alexfalkowski/konfigctl
 go 1.24.0
 
 require (
-	github.com/alexfalkowski/go-service v1.461.4
+	github.com/alexfalkowski/go-service v1.462.0
 	go.uber.org/fx v1.23.0
 	google.golang.org/grpc v1.70.0
 	google.golang.org/protobuf v1.36.5
