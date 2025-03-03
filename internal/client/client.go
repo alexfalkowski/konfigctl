@@ -60,7 +60,7 @@ func NewClient(client v1.ServiceClient, config *Config) *Client {
 }
 
 // Config from request.
-func (c *Client) Config(ctx context.Context) (string, error) {
+func (c *Client) Config(ctx context.Context) ([]byte, error) {
 	cfg := c.config.Configuration
 	req := &v1.GetConfigRequest{
 		Application: cfg.Application,
@@ -74,12 +74,10 @@ func (c *Client) Config(ctx context.Context) (string, error) {
 
 	resp, err := c.client.GetConfig(ctx, req)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
-	d := resp.GetConfig().GetData()
-
-	return string(d), nil
+	return resp.GetConfig().GetData(), nil
 }
 
 // Secrets from request.
