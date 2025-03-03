@@ -31,10 +31,10 @@ func Start(params Params) {
 
 		cfg := params.Config.Secrets
 
-		for n, v := range secrets {
-			p := filepath.Join(cfg.Path, n)
+		for name, secret := range secrets {
+			path := filepath.Join(cfg.Path, name)
 
-			err := params.FileSystem.WriteFile(p, string(v), fs.FileMode(cfg.Mode))
+			err := params.FileSystem.WriteFile(path, secret, fs.FileMode(cfg.Mode))
 			runtime.Must(err)
 		}
 	})

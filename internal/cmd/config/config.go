@@ -23,10 +23,10 @@ type Params struct {
 // Start for config.
 func Start(params Params) {
 	cmd.Start(params.Lifecycle, func(ctx context.Context) {
-		d, err := params.Client.Config(ctx)
+		config, err := params.Client.Config(ctx)
 		runtime.Must(err)
 
-		err = params.OutputConfig.Write(d, fs.FileMode(params.Config.Configuration.Mode))
+		err = params.OutputConfig.Write(config, fs.FileMode(params.Config.Configuration.Mode))
 		runtime.Must(err)
 	})
 }
