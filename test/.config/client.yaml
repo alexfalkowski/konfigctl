@@ -22,6 +22,8 @@ client:
     path: reports
     mode: 0o600
 environment: development
+id:
+  kind: uuid
 telemetry:
   logger:
     kind: text
