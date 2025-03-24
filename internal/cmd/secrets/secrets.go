@@ -7,7 +7,6 @@ import (
 
 	"github.com/alexfalkowski/go-service/cmd"
 	"github.com/alexfalkowski/go-service/os"
-	"github.com/alexfalkowski/go-service/runtime"
 	"github.com/alexfalkowski/konfigctl/internal/client"
 	"go.uber.org/fx"
 )
@@ -25,9 +24,11 @@ type Params struct {
 
 // Start for secrets.
 func Start(params Params) {
-	cmd.Start(params.Lifecycle, func(ctx context.Context) {
+	cmd.Start(params.Lifecycle, func(ctx context.Context) error {
 		secrets, err := params.Client.Secrets(ctx)
-		runtime.Must(err)
+		if err != nil {
+			return err
+		}
 
 		cfg := params.Config.Secrets
 
@@ -35,7 +36,11 @@ func Start(params Params) {
 			path := filepath.Join(cfg.Path, name)
 
 			err := params.FileSystem.WriteFile(path, secret, fs.FileMode(cfg.Mode))
-			runtime.Must(err)
+			if err != nil {
+				return err
+			}
 		}
+
+		return nil
 	})
 }
