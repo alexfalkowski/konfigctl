@@ -19,6 +19,7 @@ jobs:
           keys:
             - konfigctl-ruby-cache-{{ checksum "test/Gemfile.lock" }}
             - konfigctl-ruby-cache-
+      - run: make clean
       - run: make dep
       - save_cache:
           name: save go deps
@@ -35,6 +36,7 @@ jobs:
           keys:
             - konfigctl-go-build-cache-{{ checksum "go.sum" }}
             - konfigctl-go-build-cache-
+      - run: make clean
       - run: make lint
       - run: make sec
       - run: make features
