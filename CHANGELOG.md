@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Unreleased
 
+## [v0.229.0](https://github.com/alexfalkowski/konfigctl/releases/tag/v0.229.0) - 2025-03-28
+
+- [`71e78d9`](https://github.com/alexfalkowski/konfigctl/commit/71e78d9220d34fe5d0838c26028b9f8a8394e594) feat(deps): upgraded github.com/alexfalkowski/go-service to v1.516.0 (#379)
+- [`b10cb45`](https://github.com/alexfalkowski/konfigctl/commit/b10cb45e54ee3de2d3ecba1c0ea2c573218b141f) build(ci): add clean (#378)
+- [`4c8b917`](https://github.com/alexfalkowski/konfigctl/commit/4c8b917f1ca988394d1c58731b71c07bbc2c7eff) build(deps): bump bin from `c661929` to `16e2296` (#377)
+- [`d6fb08b`](https://github.com/alexfalkowski/konfigctl/commit/d6fb08b92c0fbddd9f3806558f2b85e0a43fec78) build(ci): use alexfalkowski/go:2.3 (#376)
+- [`cfa7456`](https://github.com/alexfalkowski/konfigctl/commit/cfa7456189bfc6a77acf223c73f8202edd3a8381) test(deps): bump rubocop from 1.74.0 to 1.75.1 in /test (#375)
+- [`48bc04e`](https://github.com/alexfalkowski/konfigctl/commit/48bc04e3286c3ab7b42339720f327c5c377ee677) build(deps): bump bin from `446c480` to `c661929` (#374)
+- [`332097e`](https://github.com/alexfalkowski/konfigctl/commit/332097e2ce153c302c9dc312b25358b9ade291db) build(ci): use alexfalkowski/go:2.2 (#373)
+- [`5f9915c`](https://github.com/alexfalkowski/konfigctl/commit/5f9915c3bb9d753375844853747de3c9dd1cf5c1) build(deps): bump bin from `b887116` to `446c480` (#372)
+
 ## [v0.228.0](https://github.com/alexfalkowski/konfigctl/releases/tag/v0.228.0) - 2025-03-26
 
 - [`411d205`](https://github.com/alexfalkowski/konfigctl/commit/411d205cf24436a69bf2a4735f634c3af092b077) feat(deps): upgraded github.com/alexfalkowski/go-service to v1.515.0 (#371)
