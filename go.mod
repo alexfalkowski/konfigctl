@@ -2,10 +2,12 @@ module github.com/alexfalkowski/konfigctl
 
 go 1.24.0
 
+toolchain go1.24.1
+
 require (
 	github.com/alexfalkowski/go-service v1.520.0
 	go.uber.org/fx v1.23.0
-	google.golang.org/grpc v1.71.0
+	google.golang.org/grpc v1.71.1
 	google.golang.org/protobuf v1.36.6
 )
 
