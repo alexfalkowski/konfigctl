@@ -5,7 +5,7 @@ When('I download the configuration') do
     'KONFIG_CONFIG_FILE' => '.config/client.yaml',
     'KONFIG_APP_CONFIG_FILE' => 'reports/server.yaml'
   }
-  cmd = Nonnative.go_executable(%w[cover], 'reports', '../konfigctl', 'config')
+  cmd = Nonnative.go_executable(%w[cover], 'reports', '../konfigctl', 'config', '-i env:KONFIG_CONFIG_FILE', '-o env:KONFIG_APP_CONFIG_FILE')
   pid = spawn(env, cmd, %i[out err] => ['reports/config.log', 'a'])
 
   _, @status = Process.waitpid2(pid)
@@ -16,7 +16,7 @@ When('I download a missing configuration') do
     'KONFIG_CONFIG_FILE' => '.config/invalid.yaml',
     'KONFIG_APP_CONFIG_FILE' => 'reports/server.yaml'
   }
-  cmd = Nonnative.go_executable(%w[cover], 'reports', '../konfigctl', 'config')
+  cmd = Nonnative.go_executable(%w[cover], 'reports', '../konfigctl', 'config', '-i env:KONFIG_CONFIG_FILE', '-o env:KONFIG_APP_CONFIG_FILE')
   pid = spawn(env, cmd, %i[out err] => ['reports/config.log', 'a'])
 
   _, @status = Process.waitpid2(pid)
