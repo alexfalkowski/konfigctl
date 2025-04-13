@@ -4,7 +4,7 @@ When('I write secrets') do
   env = {
     'KONFIG_CONFIG_FILE' => '.config/client.yaml'
   }
-  cmd = Nonnative.go_executable(%w[cover], 'reports', '../konfigctl', 'secrets')
+  cmd = Nonnative.go_executable(%w[cover], 'reports', '../konfigctl', 'secrets', '-i env:KONFIG_CONFIG_FILE')
   pid = spawn(env, cmd, %i[out err] => ['reports/secrets.log', 'a'])
 
   _, @status = Process.waitpid2(pid)
@@ -14,7 +14,7 @@ When('I try to write missing secrets') do
   env = {
     'KONFIG_CONFIG_FILE' => '.config/invalid.yaml'
   }
-  cmd = Nonnative.go_executable(%w[cover], 'reports', '../konfigctl', 'secrets')
+  cmd = Nonnative.go_executable(%w[cover], 'reports', '../konfigctl', 'secrets', '-i env:KONFIG_CONFIG_FILE')
   pid = spawn(env, cmd, %i[out err] => ['reports/secrets.log', 'a'])
 
   _, @status = Process.waitpid2(pid)

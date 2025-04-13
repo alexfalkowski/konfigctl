@@ -13,8 +13,8 @@ import (
 // RegisterConfig for cmd.
 func RegisterConfig(command *cmd.Command) {
 	flags := cmd.NewFlagSet("config")
-	flags.AddInput("env:KONFIG_CONFIG_FILE")
-	flags.AddOutput("env:KONFIG_APP_CONFIG_FILE")
+	flags.AddInput("")
+	flags.AddOutput("")
 
 	command.AddClient("config", "Get Config.", flags,
 		module.Module, token.Module,
