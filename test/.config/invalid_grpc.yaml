@@ -1,0 +1,38 @@
+client:
+  address: localhost:12000
+  retry:
+    attempts: 3
+    backoff: 100ms
+    timeout: 10s
+  timeout: 5s
+  config:
+    application: test
+    version: none
+    environment: staging
+    continent: "*"
+    country: "*"
+    command: server
+    kind: yaml
+    mode: 0o600
+  secrets:
+    path: reports
+    mode: 0o600
+environment: development
+id:
+  kind: uuid
+telemetry:
+  logger:
+    kind: text
+    level: info
+  metrics:
+    kind: otlp
+    url: http://localhost:9009/otlp/v1/metrics
+  tracer:
+    kind: otlp
+    url: http://localhost:4318/v1/traces
+token:
+  kind: ssh
+  ssh:
+    key:
+      name: konfig
+      private: secrets/ssh_private

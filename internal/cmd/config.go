@@ -2,22 +2,13 @@ package cmd
 
 import (
 	"github.com/alexfalkowski/go-service/cmd"
-	"github.com/alexfalkowski/go-service/module"
-	"github.com/alexfalkowski/go-service/telemetry"
-	"github.com/alexfalkowski/konfigctl/internal/client"
 	"github.com/alexfalkowski/konfigctl/internal/cmd/config"
-	kc "github.com/alexfalkowski/konfigctl/internal/config"
-	"github.com/alexfalkowski/konfigctl/internal/token"
+	"github.com/alexfalkowski/konfigctl/internal/cmd/module"
 )
 
 // RegisterConfig for cmd.
 func RegisterConfig(command *cmd.Command) {
-	flags := command.AddClient("config", "Get Config.",
-		module.Module, token.Module,
-		telemetry.Module, config.Module,
-		client.Module, kc.Module,
-		config.Module, cmd.Module,
-	)
+	flags := command.AddClient("config", "Get Config.", module.Module, config.Module)
 	flags.AddInput("")
 	flags.AddOutput("")
 }

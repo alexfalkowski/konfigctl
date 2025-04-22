@@ -1,7 +1,13 @@
 version: "1.0"
 servers:
-  - name: konfig
+  - name: grpc
     class: Konfig::V1::GRPCServer
     timeout: 1
     port: 12000
-    log: reports/konfig.log
+    log: reports/grpc.log
+  - name: http
+    class: Konfig::V1::HTTPServer
+    timeout: 1
+    port: 11000
+    log: reports/http.log
+

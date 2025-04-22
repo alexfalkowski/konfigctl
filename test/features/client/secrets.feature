@@ -1,11 +1,19 @@
 Feature: Secrets
   Secrets allows the system to write secrets.
 
-  Scenario: Write existing secrets
-    When I write secrets
+  Scenario Outline: Write existing secrets
+    When I write "<name>" secrets
     Then I should have secrets
 
-  Scenario: Write missing secrets
-    When I try to write missing secrets
+    Examples: With different configs
+      | name |
+      | grpc |
+
+  Scenario Outline: Write missing secrets
+    When I write "<name>" secrets
     Then I should not have secrets
     And I should see a log entry of "secrets not found" in the file "reports/secrets.log"
+
+    Examples: With different configs
+      | name         |
+      | invalid_grpc |

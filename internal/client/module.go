@@ -1,11 +1,12 @@
 package client
 
 import (
+	"github.com/alexfalkowski/konfigctl/internal/client/transport"
 	"go.uber.org/fx"
 )
 
 // Module for fx.
 var Module = fx.Options(
-	fx.Provide(NewServiceClient),
+	transport.Module,
 	fx.Provide(NewClient),
 )
