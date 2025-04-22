@@ -12,12 +12,10 @@ import (
 
 // RegisterSecrets for cmd.
 func RegisterSecrets(command *cmd.Command) {
-	flags := cmd.NewFlagSet("secrets")
-	flags.AddInput("")
-
-	command.AddClient("secrets", "Write secrets.", flags,
+	flags := command.AddClient("secrets", "Write secrets.",
 		module.Module, token.Module,
 		telemetry.Module, client.Module,
 		secrets.Module, config.Module, cmd.Module,
 	)
+	flags.AddInput("")
 }
