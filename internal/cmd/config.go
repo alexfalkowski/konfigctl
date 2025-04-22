@@ -12,14 +12,12 @@ import (
 
 // RegisterConfig for cmd.
 func RegisterConfig(command *cmd.Command) {
-	flags := cmd.NewFlagSet("config")
-	flags.AddInput("")
-	flags.AddOutput("")
-
-	command.AddClient("config", "Get Config.", flags,
+	flags := command.AddClient("config", "Get Config.",
 		module.Module, token.Module,
 		telemetry.Module, config.Module,
 		client.Module, kc.Module,
 		config.Module, cmd.Module,
 	)
+	flags.AddInput("")
+	flags.AddOutput("")
 }
