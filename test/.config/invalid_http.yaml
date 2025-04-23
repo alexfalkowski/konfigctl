@@ -1,6 +1,5 @@
 client:
-  address: localhost:12000
-  user_agent: "Konfig-client/1.0 gRPC/1.0"
+  address: http://localhost:11000
   retry:
     attempts: 3
     backoff: 100ms

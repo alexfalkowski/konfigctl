@@ -6,6 +6,7 @@ import (
 
 	"github.com/alexfalkowski/go-service/cmd"
 	"github.com/alexfalkowski/konfigctl/internal/client"
+	"github.com/alexfalkowski/konfigctl/internal/client/config"
 	"go.uber.org/fx"
 )
 
@@ -16,7 +17,7 @@ type Params struct {
 	Lifecycle    fx.Lifecycle
 	Client       *client.Client
 	OutputConfig *cmd.OutputConfig
-	Config       *client.Config
+	Config       *config.Client
 }
 
 // Start for config.

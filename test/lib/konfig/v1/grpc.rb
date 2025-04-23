@@ -2,7 +2,7 @@
 
 module Konfig
   module V1
-    class Server < Service::Service
+    class GRPCService < Service::Service
       def get_config(request, call)
         raise GRPC::Unauthenticated, 'missing auth' if call.metadata['authorization'].empty?
         raise GRPC::NotFound, 'version not found' if request.version == 'none'
@@ -24,7 +24,7 @@ module Konfig
 
     class GRPCServer < Nonnative::GRPCServer
       def initialize(service)
-        svc = Server.new
+        svc = GRPCService.new
 
         super(svc, service)
       end

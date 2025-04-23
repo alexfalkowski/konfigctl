@@ -1,7 +1,8 @@
-package client
+package config
 
 import (
 	"github.com/alexfalkowski/go-service/client"
+	"github.com/alexfalkowski/go-service/strings"
 )
 
 type (
@@ -23,11 +24,16 @@ type (
 		Path  string            `yaml:"path,omitempty" json:"path,omitempty" toml:"path,omitempty"`
 		Mode  uint32            `yaml:"mode,omitempty" json:"mode,omitempty" toml:"mode,omitempty"`
 	}
-
-	// Config for konfig.
-	Config struct {
-		*client.Config `yaml:",inline" json:",inline" toml:",inline"`
-		Configuration  *Configuration `yaml:"config,omitempty" json:"config,omitempty" toml:"config,omitempty"`
-		Secrets        *Secrets       `yaml:"secrets,omitempty" json:"secrets,omitempty" toml:"secrets,omitempty"`
-	}
 )
+
+// Client for konfig.
+type Client struct {
+	*client.Config `yaml:",inline" json:",inline" toml:",inline"`
+	Configuration  *Configuration `yaml:"config,omitempty" json:"config,omitempty" toml:"config,omitempty"`
+	Secrets        *Secrets       `yaml:"secrets,omitempty" json:"secrets,omitempty" toml:"secrets,omitempty"`
+}
+
+// IsHTTP checks if http is configured.
+func (c *Client) IsHTTP() bool {
+	return strings.HasPrefix(c.Address, "http")
+}

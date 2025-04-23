@@ -1,11 +1,19 @@
 Feature: Config
   Config allows the system to download a new configuration.
 
-  Scenario: Download existing config
-    When I download the configuration
+  Scenario Outline: Download existing config
+    When I download the "<name>" configuration
     Then I should have a configuration
 
-  Scenario: Download missing config
-    When I download a missing configuration
+    Examples: With different configs
+      | name |
+      | grpc |
+
+  Scenario Outline: Download missing config
+    When I download the "<name>" configuration
     Then I should not have a configuration
     And I should see a log entry of "version not found" in the file "reports/config.log"
+
+    Examples: With different configs
+      | name         |
+      | invalid_grpc |

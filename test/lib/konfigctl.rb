@@ -5,12 +5,8 @@ require 'yaml'
 require 'base64'
 
 require 'konfig/v1/service_services_pb'
-require 'konfig/v1/server'
+require 'konfig/v1/http'
+require 'konfig/v1/grpc'
 
 module Konfig
-  class << self
-    def client_config
-      @client_config ||= Nonnative.configurations('.config/client.yml')
-    end
-  end
 end
