@@ -1,5 +1,14 @@
 # frozen_string_literal: true
 
+Before do
+  files = [
+    'reports/server.yaml',
+    'reports/ssm.secret',
+    'reports/vault.secret'
+  ]
+  files.each { |f| FileUtils.rm_f(f) }
+end
+
 When('I write {string} secrets') do |name|
   cmd = Nonnative.go_executable(%w[cover], 'reports', '../konfigctl', 'secrets', "-i file:.config/#{name}.yaml")
   pid = spawn(cmd, %i[out err] => ['reports/secrets.log', 'a'])

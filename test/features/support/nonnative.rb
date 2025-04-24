@@ -5,12 +5,3 @@ Nonnative.configure do |config|
 end
 
 require 'nonnative/startup'
-
-Before do
-  files = [
-    'reports/server.yaml',
-    'reports/ssm.secret',
-    'reports/vault.secret'
-  ]
-  files.each { |f| FileUtils.rm_f(f) }
-end
