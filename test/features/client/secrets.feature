@@ -8,6 +8,7 @@ Feature: Secrets
     Examples: With different configs
       | name |
       | grpc |
+      | http |
 
   Scenario Outline: Write missing secrets
     When I write "<name>" secrets
@@ -17,3 +18,4 @@ Feature: Secrets
     Examples: With different configs
       | name         |
       | invalid_grpc |
+      | invalid_http |

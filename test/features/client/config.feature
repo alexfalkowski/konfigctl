@@ -8,6 +8,7 @@ Feature: Config
     Examples: With different configs
       | name |
       | grpc |
+      | http |
 
   Scenario Outline: Download missing config
     When I download the "<name>" configuration
@@ -17,3 +18,4 @@ Feature: Config
     Examples: With different configs
       | name         |
       | invalid_grpc |
+      | invalid_http |

@@ -8,7 +8,7 @@ module Konfig
         raise GRPC::NotFound, 'version not found' if request.version == 'none'
 
         c = Config.new(application: request.application, version: request.version, environment: request.environment, continent: request.continent,
-                       country: request.country, command: request.command, kind: request.kind, data: 'hello')
+                       country: request.country, command: request.command, kind: request.kind, data: Base64.encode64('hello'))
         GetConfigResponse.new(config: c)
       end
 
@@ -17,6 +17,8 @@ module Konfig
 
         secrets = request.secrets.to_h
         raise GRPC::NotFound, 'secrets not found' if secrets.empty?
+
+        secrets = secrets.transform_values { |v| Base64.encode64(v.to_s) }
 
         GetSecretsResponse.new(secrets: secrets)
       end
