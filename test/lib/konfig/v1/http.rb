@@ -13,7 +13,7 @@ module Konfig
         req = JSON.parse(request.body.read)
         halt 404, 'version not found' if req['version'] == 'none'
 
-        req.merge(data: 'hello').to_json
+        req.merge(data: Base64.encode64('hello')).to_json
       end
 
       post '/konfig.v1.Service/GetSecrets' do
@@ -23,6 +23,9 @@ module Konfig
         secrets = req['secrets'] || []
 
         halt 404, 'secrets not found' if secrets.empty?
+
+        secrets = secrets.transform_values { |v| Base64.encode64(v.to_s) }
+        req['secrets'] = secrets
 
         req.to_json
       end
